@@ -4,7 +4,13 @@
   "formato": "Storyboard de 10 cenas horizontais (16:9) + 2 cenas extras",
   "diretriz_visual": {
     "fundo": "preto absoluto (#000000) ocupando 85% a 90% do quadro",
-    "paleta": ["#000000", "#0B0B0C", "#1C1C1E", "#EDE6DA", "#C6A664"],
+    "paleta": [
+      "#000000",
+      "#0B0B0C",
+      "#1C1C1E",
+      "#EDE6DA",
+      "#C6A664"
+    ],
     "luz": "fonte única, contraluz lateral ou feixe cenital, chiaroscuro duro, névoa volumétrica discreta",
     "materiais": "pedra preta fosca, concreto, vidro fumê, bronze escovado, cristal",
     "acabamento": "grão fino de filme 35mm, textura mate, alto contraste, zero saturação fora do latão",
@@ -36,7 +42,12 @@
         "dalle_gpt_image": "gerar em paisagem 16:9, sem qualquer texto"
       },
       "texto_na_imagem": false,
-      "paleta_dominante": ["#000000", "#0B0B0C", "#EDE6DA", "#C6A664"],
+      "paleta_dominante": [
+        "#000000",
+        "#0B0B0C",
+        "#EDE6DA",
+        "#C6A664"
+      ],
       "notas_de_uso": "Cena de capa. Não escurecer demais na pós: a aresta iluminada precisa aparecer mesmo em projetor de baixo contraste."
     },
     {
@@ -62,7 +73,11 @@
         "dalle_gpt_image": "gerar em paisagem 16:9, sem texto"
       },
       "texto_na_imagem": false,
-      "paleta_dominante": ["#000000", "#111113", "#EDE6DA"],
+      "paleta_dominante": [
+        "#000000",
+        "#111113",
+        "#EDE6DA"
+      ],
       "notas_de_uso": "Se a figura sair com rosto reconhecível, reforçar no prompt 'backlit silhouette, no facial features' ou gerar de costas."
     },
     {
@@ -80,7 +95,7 @@
         "formato": "png",
         "area_livre_para_texto": "lateral direita"
       },
-      "prompt": "A single austere black wooden chair placed at the exact center of an infinite dark room, lit by one narrow overhead shaft of ivory light, a single taut brass thread descending from the darkness above and attaching to the top of the chair backrest, dust motes suspended in the beam, the floor barely visible as a black mirror, chair empty, 87 percent of the frame pure black, symmetrical composition, cinematic chiaroscuro, 35mm anamorphic lens, f/2.8, fine film grain, minimalist professional editorial art direction, no text, no letters, no logos, no person seated.",
+      "prompt": "A wide horizontal 16:9 cinematic frame. A single severe black wooden chair with a tall straight back, centered in a pitch-black empty room, lit only by one narrow overhead shaft of cool ivory light with crisp edges, a single taut hairline of brushed warm brass descending vertically from the darkness and attaching to the top center of the backrest, fine dust motes sparkling in the beam, black mirror floor with a faint reflection, chair completely empty, 90 percent of the frame pure black, perfectly symmetrical, deep chiaroscuro, no other objects, 35mm lens f/2.8, fine film grain, no text, no letters, no numbers, no logos, no person.",
       "negative_prompt": "text, letters, numbers, typography, watermark, logo, person, seated figure, bright background, white background, furniture showroom, clutter, multiple light sources, flat lighting, warm color cast, oversaturated, chrome, cartoon, stock photo, blurry",
       "parametros_por_ferramenta": {
         "midjourney": "--ar 16:9 --style raw --v 6.1 --stylize 150 --no text letters words logo person",
@@ -88,8 +103,14 @@
         "dalle_gpt_image": "gerar em paisagem 16:9, sem texto"
       },
       "texto_na_imagem": false,
-      "paleta_dominante": ["#000000", "#151515", "#EDE6DA", "#C6A664"],
-      "notas_de_uso": "A cadeira deve permanecer vazia — é a metáfora do cargo, não da pessoa."
+      "paleta_dominante": [
+        "#000000",
+        "#151515",
+        "#EDE6DA",
+        "#C6A664"
+      ],
+      "notas_de_uso": "A cadeira deve permanecer vazia — é a metáfora do cargo, não da pessoa.",
+      "variacao_aplicada": "v2 — cadeira mais severa, feixe cenital recortado, piso espelhado"
     },
     {
       "id": "cena-04",
@@ -114,7 +135,12 @@
         "dalle_gpt_image": "gerar em paisagem 16:9, sem texto"
       },
       "texto_na_imagem": false,
-      "paleta_dominante": ["#000000", "#0E0E0F", "#EDE6DA", "#C6A664"],
+      "paleta_dominante": [
+        "#000000",
+        "#0E0E0F",
+        "#EDE6DA",
+        "#C6A664"
+      ],
       "notas_de_uso": "Ideal para slide de abertura do bloco de princípios. Aceita texto sobreposto no canto superior esquerdo."
     },
     {
@@ -140,7 +166,11 @@
         "dalle_gpt_image": "gerar em paisagem 16:9, sem texto"
       },
       "texto_na_imagem": false,
-      "paleta_dominante": ["#000000", "#141416", "#EDE6DA"],
+      "paleta_dominante": [
+        "#000000",
+        "#141416",
+        "#EDE6DA"
+      ],
       "notas_de_uso": "Boa cena de transição: a subida visual prepara o espectador para o próximo conceito."
     },
     {
@@ -166,7 +196,11 @@
         "dalle_gpt_image": "gerar em paisagem 16:9, sem texto"
       },
       "texto_na_imagem": false,
-      "paleta_dominante": ["#000000", "#101012", "#EDE6DA"],
+      "paleta_dominante": [
+        "#000000",
+        "#101012",
+        "#EDE6DA"
+      ],
       "notas_de_uso": "Cena-chave da aula. Evitar que a IA gere uniformes ou insígnias — reforçar 'no badges, no uniforms'."
     },
     {
@@ -192,7 +226,12 @@
         "dalle_gpt_image": "gerar em paisagem 16:9, sem texto"
       },
       "texto_na_imagem": false,
-      "paleta_dominante": ["#000000", "#0D0D0E", "#EDE6DA", "#C6A664"],
+      "paleta_dominante": [
+        "#000000",
+        "#0D0D0E",
+        "#EDE6DA",
+        "#C6A664"
+      ],
       "notas_de_uso": "O espectro deve ficar quase todo absorvido pelo preto — não é para virar capa de disco de rock progressivo."
     },
     {
@@ -218,7 +257,12 @@
         "dalle_gpt_image": "gerar em paisagem 16:9, sem texto"
       },
       "texto_na_imagem": false,
-      "paleta_dominante": ["#000000", "#0F1113", "#EDE6DA", "#C6A664"],
+      "paleta_dominante": [
+        "#000000",
+        "#0F1113",
+        "#EDE6DA",
+        "#C6A664"
+      ],
       "notas_de_uso": "Ponto de atenção: se a IA colocar algo 'escrito' no painel de vidro, descartar a geração."
     },
     {
@@ -244,7 +288,12 @@
         "dalle_gpt_image": "gerar em paisagem 16:9, sem texto"
       },
       "texto_na_imagem": false,
-      "paleta_dominante": ["#000000", "#121214", "#C6A664", "#EDE6DA"],
+      "paleta_dominante": [
+        "#000000",
+        "#121214",
+        "#C6A664",
+        "#EDE6DA"
+      ],
       "notas_de_uso": "Fuja do clichê de martelo de juiz: o peso e a sombra comunicam responsabilidade sem literalidade."
     },
     {
@@ -270,7 +319,11 @@
         "dalle_gpt_image": "gerar em paisagem 16:9, sem texto"
       },
       "texto_na_imagem": false,
-      "paleta_dominante": ["#000000", "#0A0A0B", "#EDE6DA"],
+      "paleta_dominante": [
+        "#000000",
+        "#0A0A0B",
+        "#EDE6DA"
+      ],
       "notas_de_uso": "Cena de encerramento: aceita os créditos e o contato do professor sobrepostos."
     },
     {
@@ -296,7 +349,11 @@
         "dalle_gpt_image": "gerar em paisagem 16:9, sem texto"
       },
       "texto_na_imagem": false,
-      "paleta_dominante": ["#000000", "#131315", "#EDE6DA"],
+      "paleta_dominante": [
+        "#000000",
+        "#131315",
+        "#EDE6DA"
+      ],
       "notas_de_uso": "Use como pausa visual entre blocos. Se o metrônomo pedir números, substitua por um pêndulo simples."
     },
     {
@@ -322,7 +379,12 @@
         "dalle_gpt_image": "gerar em paisagem 16:9, sem texto"
       },
       "texto_na_imagem": false,
-      "paleta_dominante": ["#000000", "#101011", "#EDE6DA", "#C6A664"],
+      "paleta_dominante": [
+        "#000000",
+        "#101011",
+        "#EDE6DA",
+        "#C6A664"
+      ],
       "notas_de_uso": "Alternativa à cena 10 caso a apresentação termine falando de serviços públicos delegados."
     }
   ]

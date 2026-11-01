@@ -133,6 +133,28 @@ RODAPE = """
 - Nenhuma cena tem mais de um objeto protagonista.
 - Reserve a área indicada em `area_livre_para_texto` para o título do slide.
 
+## 5. Usando o deck pronto
+
+O arquivo `apresentacao-agentes-publicos.pptx` já traz a sequência montada:
+
+| Slide | Conteúdo |
+|---|---|
+| 01 | Capa |
+| 02 | Roteiro (pode ser ocultado) |
+| 03–14 | As 12 cenas, imagem em sangria total + caixas de texto |
+| 15 | Encerramento |
+| 16 | Apêndice com notas de produção (remover antes de apresentar) |
+
+- Cada slide de cena tem **caixa de título** (Georgia 30pt, marfim, caixa alta) e
+  **caixa de corpo** (Arial 13pt, cinza claro) já posicionadas na área livre da imagem,
+  com um véu preto em degradê por trás para garantir leitura.
+- O texto atual é um preenchimento (conceito + linha "Corpo de texto — substitua…"):
+  selecione e digite por cima. As caixas têm altura fixa; textos longos pedem
+  redução de corpo ou aumento da caixa.
+- **Notas do apresentador** de cada slide trazem conceito, deixa de fala, prompt e
+  negative prompt — é ali que está a produção da imagem.
+- A cena 12 (extra) é usada no slide de encerramento; a cena 10 fecha o conteúdo.
+
 ### Checklist antes de fechar o deck
 
 - [ ] 10 cenas geradas em 16:9, todas com fundo preto dominante
@@ -149,7 +171,11 @@ RODAPE = """
 | `prompts.json` | 12 prompts em JSON estruturado, prontos para consumo por script |
 | `storyboard.md` | Este documento (gerado a partir do JSON) |
 | `build_storyboard.py` | Script que regenera o Markdown a partir do JSON |
-| `preview/` | Prévias geradas das cenas 01, 02 e 06 para validar a direção de arte |
+| `preview/` | As 12 imagens geradas (`cena-*.png`, `extra-*.png`) |
+| `preview/slides/` | Prévia rasterizada de cada slide do PPTX |
+| `apresentacao-agentes-publicos.pptx` | Deck 16:9 com as 12 imagens em página inteira e caixas de título/corpo reservadas |
+| `build_pptx.py` | Gera o PPTX a partir do JSON + imagens |
+| `preview_slides.py` | Rasteriza o PPTX em PNGs para conferência rápida |
 """
 
 

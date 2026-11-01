@@ -605,27 +605,56 @@ vai para o modelo; os demais campos são metadados de direção e de roteiro.
 - Nenhuma cena tem mais de um objeto protagonista.
 - Reserve a área indicada em `area_livre_para_texto` para o título do slide.
 
-## 5. Usando o deck pronto
+## 5. Os dois decks prontos
 
-O arquivo `apresentacao-agentes-publicos.pptx` já traz a sequência montada:
+| Arquivo | Tipografia | Slides |
+|---|---|---|
+| `apresentacao-agentes-publicos.pptx` | perfil clássico: Georgia + Arial | 16 |
+| `apresentacao-agentes-publicos-v2.pptx` | perfil editorial: **Cambria + Arial**, escala tipográfica, fontes no tema | 17 |
+
+### Sistema tipográfico (perfil editorial)
+
+**Serifada nos títulos, sem serifa no corpo** — par de contraste Clássico × Moderno.
+
+| Papel | Fonte | Corpo | Detalhes |
+|---|---|---|---|
+| Título de cena | Cambria | 34 pt | caixa alta, marfim `#F2ECE1`, tracking +60 |
+| Lead (conceito) | Arial | 15 pt | cinza claro `#BDB7AB`, entrelinha 1,40 |
+| Corpo (reservado) | Arial | 11 pt | grafite `#7A766F`, itálico |
+| Etiqueta, rodapé | Arial | 8–9 pt | caixa alta, tracking +260 a +400, latão `#C9A96A` |
+
+- As fontes estão **gravadas no tema do arquivo** (`majorFont` = Cambria,
+  `minorFont` = Arial). Em *Design > Variantes > Fontes* o deck inteiro troca de
+  tipografia em um clique — inclusive para uma serifada corporativa sua.
+- A **altura do lead é calculada** a partir do texto: se o conceito jurídico for
+  longo, o corpo de apoio desce ou desaparece, sem sobrepor o rodapé.
+- O slide 16 é uma **prancha de especificação tipográfica** (amostras Aa, escala e
+  instrução de troca global) — apêndice, para ocultar antes de apresentar.
+
+### Estrutura dos slides (v2)
 
 | Slide | Conteúdo |
 |---|---|
 | 01 | Capa |
-| 02 | Roteiro (pode ser ocultado) |
-| 03–14 | As 12 cenas, imagem em sangria total + caixas de texto |
+| 02 | Roteiro |
+| 03–14 | As 12 cenas: imagem em sangria total + etiqueta, fio de latão, título, lead e corpo |
 | 15 | Encerramento |
-| 16 | Apêndice com notas de produção (remover antes de apresentar) |
+| 16 | Prancha tipográfica (apêndice) |
+| 17 | Notas de produção (apêndice) |
 
-- Cada slide de cena tem **caixa de título** (Georgia 30pt, marfim, caixa alta) e
-  **caixa de corpo** (Arial 13pt, cinza claro) já posicionadas na área livre da imagem,
-  com um véu preto em degradê por trás para garantir leitura.
-- O texto atual é um preenchimento (conceito + linha "Corpo de texto — substitua…"):
-  selecione e digite por cima. As caixas têm altura fixa; textos longos pedem
-  redução de corpo ou aumento da caixa.
-- **Notas do apresentador** de cada slide trazem conceito, deixa de fala, prompt e
-  negative prompt — é ali que está a produção da imagem.
-- A cena 12 (extra) é usada no slide de encerramento; a cena 10 fecha o conteúdo.
+- Cada bloco de texto tem **véu preto em degradê** por trás: legível mesmo sobre o
+  feixe de luz ou os degraus claros.
+- **Notas do apresentador** de cada slide trazem conceito, deixa de fala, objeto
+  visual, prompt e negative prompt.
+
+### Como regenerar
+
+```bash
+python3 -m pip install python-pptx lxml pillow
+python3 build_pptx.py                      # deck v2 (editorial)
+python3 build_pptx.py --perfil classico    # deck clássico
+python3 preview_slides.py                  # PNGs de conferência em preview/slides-v2/
+```
 
 ### Checklist antes de fechar o deck
 
@@ -644,7 +673,9 @@ O arquivo `apresentacao-agentes-publicos.pptx` já traz a sequência montada:
 | `storyboard.md` | Este documento (gerado a partir do JSON) |
 | `build_storyboard.py` | Script que regenera o Markdown a partir do JSON |
 | `preview/` | As 12 imagens geradas (`cena-*.png`, `extra-*.png`) |
-| `preview/slides/` | Prévia rasterizada de cada slide do PPTX |
-| `apresentacao-agentes-publicos.pptx` | Deck 16:9 com as 12 imagens em página inteira e caixas de título/corpo reservadas |
-| `build_pptx.py` | Gera o PPTX a partir do JSON + imagens |
+| `preview/slides/` | Prévia rasterizada do deck clássico |
+| `preview/slides-v2/` | Prévia rasterizada do deck editorial |
+| `apresentacao-agentes-publicos.pptx` | Deck 16:9 (Georgia + Arial), 16 slides |
+| `apresentacao-agentes-publicos-v2.pptx` | Deck 16:9 (Cambria + Arial, fontes no tema), 17 slides |
+| `build_pptx.py` | Gera os dois decks (`--perfil classico` / `editorial`) |
 | `preview_slides.py` | Rasteriza o PPTX em PNGs para conferência rápida |

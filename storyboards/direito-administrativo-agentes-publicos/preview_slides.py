@@ -8,28 +8,49 @@ resultado serve para checar encaixe e hierarquia, não tipografia final.
 
 Uso:
     python3 -m pip install python-pptx pillow
-    python3 preview_slides.py
+    python3 preview_slides.py                                  # deck v2
+    python3 preview_slides.py --arquivo apresentacao-agentes-publicos.pptx \
+        --saida preview/slides
 """
 
 from __future__ import annotations
 
+import argparse
 import io
+import re
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 from pptx import Presentation
 
 BASE = Path(__file__).parent
-SAIDA = BASE / "preview" / "slides"
 NS = "{http://schemas.openxmlformats.org/drawingml/2006/main}"
 EMU_IN = 914400
 DPI = 96
 
-FONTES = {
-    "serifa": "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
-    "sans": "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
-    "sans_bold": "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+# Como as fontes reais (Cambria/Georgia/Arial) podem não existir na máquina,
+# usamos DejaVu para conferir encaixe. O tema é lido para saber qual família
+# cada run (+mj-lt = título, +mn-lt = corpo) está pedindo.
+ARQUIVOS_FONTE = {
+    "DejaVuSerif.ttf": "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
+    "DejaVuSans.ttf": "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+    "DejaVuSans-Bold.ttf": "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
 }
+
+
+def fontes_do_tema(prs) -> dict[str, str]:
+    """Lê majorFont/minorFont do tema e mapeia para arquivos locais de conferência."""
+    mapa = {"+mj-lt": ARQUIVOS_FONTE["DejaVuSerif.ttf"],
+            "+mn-lt": ARQUIVOS_FONTE["DejaVuSans.ttf"]}
+    for part in prs.part.package.iter_parts():
+        if str(part.partname).endswith("theme/theme1.xml"):
+            xml = part.blob.decode("utf-8")
+            major = re.search(r'<a:majorFont>\s*<a:latin typeface="([^"]*)"', xml)
+            minor = re.search(r'<a:minorFont>\s*<a:latin typeface="([^"]*)"', xml)
+            print(f"tema: títulos {major.group(1) if major else '?'} · "
+                  f"corpo {minor.group(1) if minor else '?'}")
+            break
+    return mapa
 
 
 def px(valor) -> int:
@@ -68,7 +89,7 @@ def alfa_do_gradiente(grad, posicao: float) -> float:
 
 
 def pintar_scrim(canvas, forma, caixa) -> None:
-    grad = forma._element.find(f".//{NS}gradFill")
+    grad = forma._element.spPr.find(f"{NS}gradFill")
     x0, y0, x1, y1 = caixa
     largura, altura = max(1, x1 - x0), max(1, y1 - y0)
     angulo = int(grad.find(f"{NS}lin").get("ang")) // 60000
@@ -99,10 +120,14 @@ def pintar_texto(canvas, forma, caixa) -> None:
         run = paragrafo.runs[0]
         tamanho = run.font.size.pt if run.font.size else 12
         pixels = int(tamanho * DPI / 72)
-        chave = "serifa" if "Georgia" in (run.font.name or "") else (
-            "sans_bold" if run.font.bold else "sans"
-        )
-        fonte = ImageFont.truetype(FONTES[chave], pixels)
+        nome = run.font.name or ""
+        if nome in MAPA_FONTES:
+            arquivo = MAPA_FONTES[nome]
+        elif any(k in nome for k in ("Georgia", "Cambria", "Serif", "Times")):
+            arquivo = ARQUIVOS_FONTE["DejaVuSerif.ttf"]
+        else:
+            arquivo = ARQUIVOS_FONTE["DejaVuSans.ttf"]
+        fonte = ImageFont.truetype(arquivo, pixels)
         cor = tuple(run.font.color.rgb) if run.font.color and run.font.color.rgb else (255, 255, 255)
         texto = "".join(r.text for r in paragrafo.runs)
         for linha in quebrar(desenho, texto, fonte, largura):
@@ -110,9 +135,19 @@ def pintar_texto(canvas, forma, caixa) -> None:
             y += int(pixels * (paragrafo.line_spacing or 1.2))
 
 
+MAPA_FONTES: dict[str, str] = {}
+
+
 def main() -> None:
-    SAIDA.mkdir(parents=True, exist_ok=True)
-    prs = Presentation(str(BASE / "apresentacao-agentes-publicos.pptx"))
+    parser = argparse.ArgumentParser(description="Rasteriza o PPTX em PNGs.")
+    parser.add_argument("--arquivo", default="apresentacao-agentes-publicos-v2.pptx")
+    parser.add_argument("--saida", default="preview/slides-v2")
+    args = parser.parse_args()
+
+    saida = BASE / args.saida
+    saida.mkdir(parents=True, exist_ok=True)
+    prs = Presentation(str(BASE / args.arquivo))
+    MAPA_FONTES.update(fontes_do_tema(prs))
 
     for indice, slide in enumerate(prs.slides, start=1):
         largura, altura = px(prs.slide_width), px(prs.slide_height)
@@ -130,14 +165,21 @@ def main() -> None:
             if forma.shape_type == 13:  # imagem
                 img = Image.open(io.BytesIO(forma.image.blob)).convert("RGB")
                 canvas.paste(img.resize(tamanho), (caixa[0], caixa[1]))
-            elif forma._element.find(f".//{NS}gradFill") is not None:
+            elif forma._element.spPr.find(f"{NS}gradFill") is not None:
                 pintar_scrim(canvas, forma, caixa)
+            elif (forma._element.spPr.find(f"{NS}solidFill") is not None
+                  and not (forma.has_text_frame and forma.text_frame.text.strip())):
+                preenchimento = forma._element.spPr.find(f"{NS}solidFill")
+                clr = preenchimento.find(f"{NS}srgbClr")
+                if clr is not None:
+                    rgb = tuple(int(clr.get("val")[i:i + 2], 16) for i in (0, 2, 4))
+                    ImageDraw.Draw(canvas).rectangle(caixa, fill=rgb)
             elif forma.has_text_frame and forma.text_frame.text.strip():
                 pintar_texto(canvas, forma, caixa)
 
-        canvas.save(SAIDA / f"slide-{indice:02d}.png")
+        canvas.save(saida / f"slide-{indice:02d}.png")
 
-    print(f"{indice} prévias em {SAIDA.relative_to(BASE)}/")
+    print(f"{indice} prévias em {saida.relative_to(BASE)}/")
 
 
 if __name__ == "__main__":

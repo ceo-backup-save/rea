@@ -1,0 +1,329 @@
+{
+  "projeto": "Direito Administrativo — Agentes Públicos",
+  "versao": "1.0",
+  "formato": "Storyboard de 10 cenas horizontais (16:9) + 2 cenas extras",
+  "diretriz_visual": {
+    "fundo": "preto absoluto (#000000) ocupando 85% a 90% do quadro",
+    "paleta": ["#000000", "#0B0B0C", "#1C1C1E", "#EDE6DA", "#C6A664"],
+    "luz": "fonte única, contraluz lateral ou feixe cenital, chiaroscuro duro, névoa volumétrica discreta",
+    "materiais": "pedra preta fosca, concreto, vidro fumê, bronze escovado, cristal",
+    "acabamento": "grão fino de filme 35mm, textura mate, alto contraste, zero saturação fora do latão",
+    "regra_absoluta": "nenhum texto, letra, número, logotipo, símbolo legível, rosto ou documento com escrita",
+    "composicao": "muito espaço negativo, simetria ou regra dos terços, sujeito isolado, horizonte limpo",
+    "cauda_de_estilo": "Minimalist professional editorial art direction, predominantly pure black background occupying 85 to 90 percent of the frame, single controlled light source, deep chiaroscuro, subtle volumetric haze, matte surfaces, restrained palette of black, charcoal and ivory with one hairline of brushed warm brass, high contrast, generous negative space, cinematic architectural still life, 35mm anamorphic lens, f/2.8, fine film grain, no text anywhere in the image."
+  },
+  "prompts": [
+    {
+      "id": "cena-01",
+      "ordem": 1,
+      "titulo": "Abertura — o Estado como abstração",
+      "conceito_juridico": "A pessoa jurídica de direito público é uma abstração: o Estado só existe, na prática, quando alguém age por ele.",
+      "objeto_visual": "Monólito de pedra preta com apenas uma aresta iluminada",
+      "gancho_de_fala": "Abra a aula com a pergunta: quando o Estado age, quem exatamente está agindo?",
+      "duracao_em_tela_s": 8,
+      "transicao": "fade in a partir do preto, 1,2 s",
+      "especificacoes": {
+        "proporcao": "16:9",
+        "resolucao": "3840x2160",
+        "formato": "png",
+        "area_livre_para_texto": "metade esquerda inferior"
+      },
+      "prompt": "A massive matte black stone monolith with razor-sharp edges standing alone in an infinite black void, floating above a black reflective floor, only its upper right vertical edge catching a hairline of warm ivory light, a faint wisp of volumetric haze drifting behind it, 88 percent of the frame pure black, extreme negative space on the left, symmetrical horizon, no visible room, minimalist architectural still life, cinematic chiaroscuro, 35mm anamorphic lens, f/2.8, fine film grain, monochrome black and charcoal palette with a single brushed brass highlight, high contrast, no text, no letters, no logos, no people.",
+      "negative_prompt": "text, letters, numbers, words, typography, watermark, logo, signature, signage, labels, readable documents, faces, crowd, clutter, bright background, white background, grey studio background, rainbow colors, neon, multiple light sources, flat lighting, low contrast, oversaturated, chrome, plastic, 3d render look, cartoon, illustration, stock photo, blurry, low resolution",
+      "parametros_por_ferramenta": {
+        "midjourney": "--ar 16:9 --style raw --v 6.1 --stylize 150 --no text letters words logo",
+        "flux_sd": "width 1920, height 1088, guidance 3.5, steps 32, sampler dpmpp_2m",
+        "dalle_gpt_image": "gerar em paisagem 16:9, sem qualquer texto"
+      },
+      "texto_na_imagem": false,
+      "paleta_dominante": ["#000000", "#0B0B0C", "#EDE6DA", "#C6A664"],
+      "notas_de_uso": "Cena de capa. Não escurecer demais na pós: a aresta iluminada precisa aparecer mesmo em projetor de baixo contraste."
+    },
+    {
+      "id": "cena-02",
+      "ordem": 2,
+      "titulo": "Teoria do órgão — o agente é o corpo do Estado",
+      "conceito_juridico": "Teoria do órgão (imputação): a vontade do agente é imputada ao Estado, como se o Estado agisse por meio dele.",
+      "objeto_visual": "Silhueta humana alinhada a uma coluna, formando um único corpo",
+      "gancho_de_fala": "O agente não representa o Estado: ele é o Estado em atuação.",
+      "duracao_em_tela_s": 9,
+      "transicao": "crossfade 0,8 s",
+      "especificacoes": {
+        "proporcao": "16:9",
+        "resolucao": "3840x2160",
+        "formato": "png",
+        "area_livre_para_texto": "terço inferior"
+      },
+      "prompt": "A tall matte black architectural column standing in total darkness, and directly in front of it a featureless human silhouette in profile, perfectly aligned so that the person and the column read as one single vertical form, a soft rim light from the left tracing only the contour of both, the figure anonymous and faceless, shoulders inside the column line, 85 percent of the frame pure black, thin brass line of light along the outer edge, cinematic chiaroscuro, 35mm anamorphic lens, f/2.8, fine film grain, minimalist professional editorial art direction, no text, no letters, no logos, no facial features.",
+      "negative_prompt": "text, letters, numbers, typography, watermark, logo, readable documents, detailed face, eyes, crowd, bright background, white background, colored light, multiple light sources, flat lighting, oversaturated, chrome, plastic 3d render, cartoon, stock photo, blurry",
+      "parametros_por_ferramenta": {
+        "midjourney": "--ar 16:9 --style raw --v 6.1 --stylize 150 --no text letters words logo face",
+        "flux_sd": "width 1920, height 1088, guidance 3.5, steps 32",
+        "dalle_gpt_image": "gerar em paisagem 16:9, sem texto"
+      },
+      "texto_na_imagem": false,
+      "paleta_dominante": ["#000000", "#111113", "#EDE6DA"],
+      "notas_de_uso": "Se a figura sair com rosto reconhecível, reforçar no prompt 'backlit silhouette, no facial features' ou gerar de costas."
+    },
+    {
+      "id": "cena-03",
+      "ordem": 3,
+      "titulo": "Investidura — o vínculo jurídico",
+      "conceito_juridico": "O agente público só age legitimamente porque está investido em cargo, emprego ou função, por um vínculo jurídico previamente definido.",
+      "objeto_visual": "Cadeira vazia sob um fio de latão que desce da escuridão",
+      "gancho_de_fala": "Sem investidura não há agente: há apenas alguém ocupando uma cadeira.",
+      "duracao_em_tela_s": 7,
+      "transicao": "corte seco no preto",
+      "especificacoes": {
+        "proporcao": "16:9",
+        "resolucao": "3840x2160",
+        "formato": "png",
+        "area_livre_para_texto": "lateral direita"
+      },
+      "prompt": "A single austere black wooden chair placed at the exact center of an infinite dark room, lit by one narrow overhead shaft of ivory light, a single taut brass thread descending from the darkness above and attaching to the top of the chair backrest, dust motes suspended in the beam, the floor barely visible as a black mirror, chair empty, 87 percent of the frame pure black, symmetrical composition, cinematic chiaroscuro, 35mm anamorphic lens, f/2.8, fine film grain, minimalist professional editorial art direction, no text, no letters, no logos, no person seated.",
+      "negative_prompt": "text, letters, numbers, typography, watermark, logo, person, seated figure, bright background, white background, furniture showroom, clutter, multiple light sources, flat lighting, warm color cast, oversaturated, chrome, cartoon, stock photo, blurry",
+      "parametros_por_ferramenta": {
+        "midjourney": "--ar 16:9 --style raw --v 6.1 --stylize 150 --no text letters words logo person",
+        "flux_sd": "width 1920, height 1088, guidance 3.5, steps 32",
+        "dalle_gpt_image": "gerar em paisagem 16:9, sem texto"
+      },
+      "texto_na_imagem": false,
+      "paleta_dominante": ["#000000", "#151515", "#EDE6DA", "#C6A664"],
+      "notas_de_uso": "A cadeira deve permanecer vazia — é a metáfora do cargo, não da pessoa."
+    },
+    {
+      "id": "cena-04",
+      "ordem": 4,
+      "titulo": "Princípio da legalidade",
+      "conceito_juridico": "Ao agente público só é lícito fazer o que a lei autoriza (art. 37, caput, da CF/88).",
+      "objeto_visual": "Fio de prumo de luz e grade ortogonal perfeita",
+      "gancho_de_fala": "A legalidade não é um limite externo: é a própria estrutura que sustenta o agir.",
+      "duracao_em_tela_s": 8,
+      "transicao": "crossfade 0,6 s",
+      "especificacoes": {
+        "proporcao": "16:9",
+        "resolucao": "3840x2160",
+        "formato": "png",
+        "area_livre_para_texto": "canto superior esquerdo"
+      },
+      "prompt": "A perfectly straight vertical plumb line of ivory light, one pixel wide, hanging in infinite black space slightly off center, behind it a faint orthogonal grid of hairline brass lines receding in exact perspective, every intersection aligned to the plumb line with mathematical precision, almost nothing else visible, 90 percent of the frame pure black, dust in the air catching the beam, graphic minimalism, cinematic chiaroscuro, 35mm lens, f/4, fine film grain, no text, no letters, no numbers, no logos.",
+      "negative_prompt": "text, letters, numbers, typography, formulas, watermark, logo, wireframe render, hud interface, blueprint labels, bright background, white background, colored neon grid, multiple light sources, lens flare chaos, oversaturated, cartoon, stock photo, blurry",
+      "parametros_por_ferramenta": {
+        "midjourney": "--ar 16:9 --style raw --v 6.1 --stylize 100 --no text letters numbers grid labels",
+        "flux_sd": "width 1920, height 1088, guidance 3.0, steps 32",
+        "dalle_gpt_image": "gerar em paisagem 16:9, sem texto"
+      },
+      "texto_na_imagem": false,
+      "paleta_dominante": ["#000000", "#0E0E0F", "#EDE6DA", "#C6A664"],
+      "notas_de_uso": "Ideal para slide de abertura do bloco de princípios. Aceita texto sobreposto no canto superior esquerdo."
+    },
+    {
+      "id": "cena-05",
+      "ordem": 5,
+      "titulo": "Hierarquia e subordinação",
+      "conceito_juridico": "Poder hierárquico: escalonamento, fiscalização e revisão da atuação do subordinado.",
+      "objeto_visual": "Degraus de pedra que sobem e desaparecem no preto",
+      "gancho_de_fala": "Hierarquia é estrutura, não privilégio: cada nível responde ao de cima.",
+      "duracao_em_tela_s": 7,
+      "transicao": "corte seco",
+      "especificacoes": {
+        "proporcao": "16:9",
+        "resolucao": "3840x2160",
+        "formato": "png",
+        "area_livre_para_texto": "terço inferior"
+      },
+      "prompt": "A flight of massive black stone steps ascending diagonally from lower left to upper right and vanishing into absolute darkness, each step edge defined only by a hairline of warm ivory light, no handrail, no walls, no railing, perfectly regular proportions, 86 percent of the frame pure black, faint haze at the top of the stair, cinematic chiaroscuro, 35mm anamorphic lens, f/2.8, fine film grain, minimalist architectural photography, no text, no letters, no logos, no people.",
+      "negative_prompt": "text, letters, numbers, typography, watermark, logo, marble palace, ornate architecture, columns galore, people, bright background, white background, colored light, multiple light sources, flat lighting, oversaturated, cartoon, stock photo, blurry",
+      "parametros_por_ferramenta": {
+        "midjourney": "--ar 16:9 --style raw --v 6.1 --stylize 150 --no text letters words logo people",
+        "flux_sd": "width 1920, height 1088, guidance 3.5, steps 32",
+        "dalle_gpt_image": "gerar em paisagem 16:9, sem texto"
+      },
+      "texto_na_imagem": false,
+      "paleta_dominante": ["#000000", "#141416", "#EDE6DA"],
+      "notas_de_uso": "Boa cena de transição: a subida visual prepara o espectador para o próximo conceito."
+    },
+    {
+      "id": "cena-06",
+      "ordem": 6,
+      "titulo": "Impessoalidade",
+      "conceito_juridico": "O agente atua em nome da função, não em nome próprio: vedação de promoção pessoal e de favorecimento.",
+      "objeto_visual": "Fileira de silhuetas idênticas, iluminadas de forma idêntica",
+      "gancho_de_fala": "Se não é possível distinguir quem é quem, a decisão é impessoal.",
+      "duracao_em_tela_s": 9,
+      "transicao": "crossfade 0,8 s",
+      "especificacoes": {
+        "proporcao": "16:9",
+        "resolucao": "3840x2160",
+        "formato": "png",
+        "area_livre_para_texto": "faixa superior"
+      },
+      "prompt": "Six identical featureless human silhouettes standing shoulder to shoulder in profile on a black plane, evenly lit by one long horizontal strip of ivory light from the left so that they are completely indistinguishable from one another, their shadows merging into a single continuous dark band on the floor, no faces, no clothing detail, no accessories, 85 percent of the frame pure black, extreme wide composition with negative space above, cinematic chiaroscuro, 35mm anamorphic lens, f/2.8, fine film grain, minimalist professional editorial art direction, no text, no letters, no numbers, no logos.",
+      "negative_prompt": "text, letters, numbers, typography, watermark, logo, visible faces, uniforms with badges, distinct individuals, crowd chaos, bright background, white background, color separation, multiple light sources, flat lighting, oversaturated, cartoon, stock photo, blurry",
+      "parametros_por_ferramenta": {
+        "midjourney": "--ar 16:9 --style raw --v 6.1 --stylize 120 --no text letters words logo faces",
+        "flux_sd": "width 1920, height 1088, guidance 3.5, steps 32",
+        "dalle_gpt_image": "gerar em paisagem 16:9, sem texto"
+      },
+      "texto_na_imagem": false,
+      "paleta_dominante": ["#000000", "#101012", "#EDE6DA"],
+      "notas_de_uso": "Cena-chave da aula. Evitar que a IA gere uniformes ou insígnias — reforçar 'no badges, no uniforms'."
+    },
+    {
+      "id": "cena-07",
+      "ordem": 7,
+      "titulo": "Moralidade e ética",
+      "conceito_juridico": "A atuação deve observar boa-fé, lealdade, probidade e coerência (moralidade administrativa).",
+      "objeto_visual": "Prisma de cristal atravessado por um único feixe",
+      "gancho_de_fala": "A lei diz o que pode; a moralidade diz como se deve.",
+      "duracao_em_tela_s": 8,
+      "transicao": "crossfade 0,6 s",
+      "especificacoes": {
+        "proporcao": "16:9",
+        "resolucao": "3840x2160",
+        "formato": "png",
+        "area_livre_para_texto": "metade direita"
+      },
+      "prompt": "A single flawless crystal prism standing upright on a black mirrored surface in total darkness, pierced by one razor-thin beam of ivory light entering from the left, the light bending and separating into a very restrained warm brass and pale ivory spectrum that fades immediately into the blackness, tiny dust motes in the beam, 88 percent of the frame pure black, elegant and austere, cinematic chiaroscuro, macro-style 35mm lens at f/2.8, fine film grain, no text, no letters, no logos, no rainbow neon.",
+      "negative_prompt": "text, letters, numbers, typography, watermark, logo, prism pyramid diagram, double rainbow, neon spectrum, rainbow colors, bright background, white background, multiple light sources, flat lighting, oversaturated, chrome, cartoon, stock photo, blurry",
+      "parametros_por_ferramenta": {
+        "midjourney": "--ar 16:9 --style raw --v 6.1 --stylize 100 --no text letters words logo rainbow",
+        "flux_sd": "width 1920, height 1088, guidance 3.5, steps 32",
+        "dalle_gpt_image": "gerar em paisagem 16:9, sem texto"
+      },
+      "texto_na_imagem": false,
+      "paleta_dominante": ["#000000", "#0D0D0E", "#EDE6DA", "#C6A664"],
+      "notas_de_uso": "O espectro deve ficar quase todo absorvido pelo preto — não é para virar capa de disco de rock progressivo."
+    },
+    {
+      "id": "cena-08",
+      "ordem": 8,
+      "titulo": "Publicidade e transparência",
+      "conceito_juridico": "Publicidade é regra; sigilo é exceção (art. 37, caput, e art. 5º, XXXIII, da CF/88; Lei 12.527/2011).",
+      "objeto_visual": "Feixe cônico atravessando um painel de vidro fumê",
+      "gancho_de_fala": "O que o feixe não alcança ainda existe — e por isso precisa ser justificado.",
+      "duracao_em_tela_s": 8,
+      "transicao": "corte seco",
+      "especificacoes": {
+        "proporcao": "16:9",
+        "resolucao": "3840x2160",
+        "formato": "png",
+        "area_livre_para_texto": "terço inferior"
+      },
+      "prompt": "A narrow conical beam of ivory light from an unseen source cutting diagonally through an empty dark room and landing on a large smoked glass panel, the beam revealing only dust suspended in the air and the subtle edge of the glass outlined in a hairline of brushed brass, everything outside the beam swallowed by absolute black, 87 percent of the frame pure black, volumetric light, cinematic chiaroscuro, 35mm anamorphic lens, f/2.8, fine film grain, minimalist professional editorial art direction, no text, no letters, no numbers, no logos, no doors with signs.",
+      "negative_prompt": "text, letters, numbers, typography, watermark, logo, projected words, slides, screens with content, documents, bright background, white background, colored light beams, multiple projectors, lens flares, flat lighting, oversaturated, cartoon, stock photo, blurry",
+      "parametros_por_ferramenta": {
+        "midjourney": "--ar 16:9 --style raw --v 6.1 --stylize 120 --no text letters words logo screen",
+        "flux_sd": "width 1920, height 1088, guidance 3.5, steps 32",
+        "dalle_gpt_image": "gerar em paisagem 16:9, sem texto"
+      },
+      "texto_na_imagem": false,
+      "paleta_dominante": ["#000000", "#0F1113", "#EDE6DA", "#C6A664"],
+      "notas_de_uso": "Ponto de atenção: se a IA colocar algo 'escrito' no painel de vidro, descartar a geração."
+    },
+    {
+      "id": "cena-09",
+      "ordem": 9,
+      "titulo": "Responsabilidade",
+      "conceito_juridico": "O agente responde civil, penal e administrativamente por seus atos; o Estado responde objetivamente pelos danos que seus agentes causarem (art. 37, § 6º, da CF/88).",
+      "objeto_visual": "Peso de bronze cuja sombra é maior que o objeto",
+      "gancho_de_fala": "A sombra do ato é sempre maior do que o ato.",
+      "duracao_em_tela_s": 9,
+      "transicao": "crossfade 0,8 s",
+      "especificacoes": {
+        "proporcao": "16:9",
+        "resolucao": "3840x2160",
+        "formato": "png",
+        "area_livre_para_texto": "metade esquerda"
+      },
+      "prompt": "A single matte black bronze weight resting on a low black pedestal in an empty dark room, hard single light from the upper right casting a shadow twice as long as the object and denser than the object itself, stretching across the black floor, a slack thin brass chain coiled beside it, no scale or number markings, 86 percent of the frame pure black, dramatic isolation, cinematic chiaroscuro, 35mm anamorphic lens, f/2.8, fine film grain, minimalist professional editorial art direction, no text, no letters, no numbers, no logos.",
+      "negative_prompt": "text, letters, numbers, scales with markings, watermark, logo, courtroom gavel cliché, handcuffs, bright background, white background, multiple light sources, flat lighting, oversaturated, chrome, cartoon, stock photo, blurry",
+      "parametros_por_ferramenta": {
+        "midjourney": "--ar 16:9 --style raw --v 6.1 --stylize 120 --no text letters numbers words logo",
+        "flux_sd": "width 1920, height 1088, guidance 3.5, steps 32",
+        "dalle_gpt_image": "gerar em paisagem 16:9, sem texto"
+      },
+      "texto_na_imagem": false,
+      "paleta_dominante": ["#000000", "#121214", "#C6A664", "#EDE6DA"],
+      "notas_de_uso": "Fuja do clichê de martelo de juiz: o peso e a sombra comunicam responsabilidade sem literalidade."
+    },
+    {
+      "id": "cena-10",
+      "ordem": 10,
+      "titulo": "Fechamento — o serviço continua",
+      "conceito_juridico": "Continuidade do serviço público e permanência da função: o agente passa, a instituição fica.",
+      "objeto_visual": "Porta entreaberta vazando uma linha de luz",
+      "gancho_de_fala": "Os agentes mudam; a função pública permanece.",
+      "duracao_em_tela_s": 10,
+      "transicao": "fade out para o preto, 2 s",
+      "especificacoes": {
+        "proporcao": "16:9",
+        "resolucao": "3840x2160",
+        "formato": "png",
+        "area_livre_para_texto": "toda a moldura (cena de encerramento)"
+      },
+      "prompt": "A black monolithic wall with a tall door barely ajar, a single vertical seam of warm ivory light escaping from the opening and falling onto a black floor as an elongated triangle, no handle visible, no signage, everything else absolute darkness, 90 percent of the frame pure black, quiet and monumental, volumetric haze in the light seam, cinematic chiaroscuro, 35mm anamorphic lens, f/2.8, fine film grain, minimalist professional editorial art direction, no text, no letters, no numbers, no logos, no exit sign.",
+      "negative_prompt": "text, letters, numbers, exit sign, typography, watermark, logo, door handle detail, bright background, white background, corridor with lamps, multiple light sources, flat lighting, oversaturated, warm orange cast, cartoon, stock photo, blurry",
+      "parametros_por_ferramenta": {
+        "midjourney": "--ar 16:9 --style raw --v 6.1 --stylize 150 --no text letters exit sign logo",
+        "flux_sd": "width 1920, height 1088, guidance 3.5, steps 32",
+        "dalle_gpt_image": "gerar em paisagem 16:9, sem texto"
+      },
+      "texto_na_imagem": false,
+      "paleta_dominante": ["#000000", "#0A0A0B", "#EDE6DA"],
+      "notas_de_uso": "Cena de encerramento: aceita os créditos e o contato do professor sobrepostos."
+    },
+    {
+      "id": "extra-11",
+      "ordem": 11,
+      "titulo": "Eficiência (cena extra)",
+      "conceito_juridico": "Eficiência como dever de resultado e de economicidade na atuação administrativa.",
+      "objeto_visual": "Metrônomo mínimo, agulha única em movimento",
+      "gancho_de_fala": "Eficiência é ritmo: fazer o que deve ser feito, no tempo e no custo devidos.",
+      "duracao_em_tela_s": 6,
+      "transicao": "corte seco",
+      "especificacoes": {
+        "proporcao": "16:9",
+        "resolucao": "3840x2160",
+        "formato": "png",
+        "area_livre_para_texto": "metade esquerda"
+      },
+      "prompt": "A single slender black metronome standing on a black surface in an empty dark room, its metal needle caught mid-swing and rendered only by a thin line of ivory light, a faint motion trail suggesting rhythm, no numbers, no scale marks, no brand, 88 percent of the frame pure black, isolated and precise, cinematic chiaroscuro, 35mm macro lens at f/2.8, fine film grain, minimalist professional editorial art direction, no text, no letters, no numbers, no logos.",
+      "negative_prompt": "text, letters, numbers, dial markings, watermark, logo, clock face with numerals, bright background, white background, multiple light sources, flat lighting, oversaturated, chrome, cartoon, stock photo, blurry",
+      "parametros_por_ferramenta": {
+        "midjourney": "--ar 16:9 --style raw --v 6.1 --stylize 120 --no text letters numbers logo",
+        "flux_sd": "width 1920, height 1088, guidance 3.5, steps 32",
+        "dalle_gpt_image": "gerar em paisagem 16:9, sem texto"
+      },
+      "texto_na_imagem": false,
+      "paleta_dominante": ["#000000", "#131315", "#EDE6DA"],
+      "notas_de_uso": "Use como pausa visual entre blocos. Se o metrônomo pedir números, substitua por um pêndulo simples."
+    },
+    {
+      "id": "extra-12",
+      "ordem": 12,
+      "titulo": "Continuidade do serviço (cena extra)",
+      "conceito_juridico": "Continuidade do serviço público: a prestação não pode ser interrompida (art. 6º, § 1º, Lei 8.987/1995, por analogia).",
+      "objeto_visual": "Canal de luz correndo entre blocos de pedra",
+      "gancho_de_fala": "O fluxo não pode parar — o agente é apenas o leito por onde ele corre.",
+      "duracao_em_tela_s": 7,
+      "transicao": "crossfade 0,8 s",
+      "especificacoes": {
+        "proporcao": "16:9",
+        "resolucao": "3840x2160",
+        "formato": "png",
+        "area_livre_para_texto": "faixa superior"
+      },
+      "prompt": "A narrow channel of liquid ivory light running horizontally between massive matte black stone blocks, seen in raking low angle, the light flowing continuously from the left edge to the right edge of the frame, black stone absorbing almost everything, faint mist above the channel, no water texture, abstract and sculptural, 85 percent of the frame pure black, cinematic chiaroscuro, 35mm anamorphic lens, f/2.8, fine film grain, minimalist professional editorial art direction, no text, no letters, no numbers, no logos.",
+      "negative_prompt": "text, letters, numbers, typography, watermark, logo, river landscape, nature, bright background, white background, blue light, multiple light sources, flat lighting, oversaturated, cartoon, stock photo, blurry",
+      "parametros_por_ferramenta": {
+        "midjourney": "--ar 16:9 --style raw --v 6.1 --stylize 120 --no text letters words logo",
+        "flux_sd": "width 1920, height 1088, guidance 3.5, steps 32",
+        "dalle_gpt_image": "gerar em paisagem 16:9, sem texto"
+      },
+      "texto_na_imagem": false,
+      "paleta_dominante": ["#000000", "#101011", "#EDE6DA", "#C6A664"],
+      "notas_de_uso": "Alternativa à cena 10 caso a apresentação termine falando de serviços públicos delegados."
+    }
+  ]
+}
